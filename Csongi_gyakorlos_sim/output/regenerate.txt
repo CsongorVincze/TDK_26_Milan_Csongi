@@ -1,0 +1,4 @@
+cd /home/csongi/Documents/TDK_26/Csongi_gyakorlos_sim
+g++ -std=c++17 -O2 -Wall -Wextra -pedantic solver.cpp -o oscillon
+./oscillon
+python3 animate.py

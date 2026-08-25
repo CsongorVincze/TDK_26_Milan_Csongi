@@ -20,3 +20,6 @@
 
 # PDFs
 *.pdf
+
+# Reference implementation kept locally, not part of this work
+AI SLOP/
