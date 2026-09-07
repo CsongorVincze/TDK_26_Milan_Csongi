@@ -18,6 +18,10 @@
 *.wmv
 *.flv
 
+# Data
+*.dat
+*.txt
+
 # PDFs
 *.pdf
 

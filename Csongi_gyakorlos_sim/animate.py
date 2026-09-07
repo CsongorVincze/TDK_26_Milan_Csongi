@@ -2,6 +2,7 @@
 """Create a basic animation from output/snapshots.dat."""
 
 from pathlib import Path
+import argparse
 
 import matplotlib
 
@@ -12,8 +13,6 @@ import numpy as np
 
 
 ROOT = Path(__file__).resolve().parent
-SNAPSHOT_FILE = ROOT / "output" / "snapshots.dat"
-VIDEO_DIR = ROOT / "output" / "video"
 
 
 def read_snapshots(path):
@@ -47,15 +46,45 @@ def read_snapshots(path):
     return snapshots
 
 
+def read_metadata(path):
+    if not path.exists():
+        return [], "unknown"
+
+    lines = [line.strip() for line in path.read_text().splitlines()
+             if line.strip()]
+    date = next((line.split("=", 1)[1] for line in lines
+                 if line.startswith("date=")), "unknown")
+    return lines, date
+
+
+def resolve_run_directory(value):
+    directory = Path(value)
+    if not directory.is_absolute():
+        directory = ROOT / directory
+    return directory
+
+
 def main():
-    if not SNAPSHOT_FILE.exists():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--run",
+        default="output",
+        help="run directory, e.g. output/sweep/run_001_A0p40_R02p00",
+    )
+    args = parser.parse_args()
+
+    run_directory = resolve_run_directory(args.run)
+    snapshot_file = run_directory / "snapshots.dat"
+    metadata_file = run_directory / "run_info.txt"
+    if not snapshot_file.exists():
         raise SystemExit(
-            f"{SNAPSHOT_FILE} does not exist; run the C++ simulation first"
+            f"{snapshot_file} does not exist; run the C++ simulation first"
         )
 
-    snapshots = read_snapshots(SNAPSHOT_FILE)
+    snapshots = read_snapshots(snapshot_file)
     if not snapshots:
         raise SystemExit("the snapshot file is empty")
+    metadata_lines, run_date = read_metadata(metadata_file)
 
     radius = snapshots[0][1]
     amplitude = max(
@@ -63,8 +92,12 @@ def main():
     )
 
     fig, ax = plt.subplots(figsize=(8, 4.5))
+    fig.subplots_adjust(bottom=0.34)
     (line,) = ax.plot(radius, snapshots[0][2], color="navy", linewidth=2)
     time_label = ax.text(0.02, 0.93, "", transform=ax.transAxes)
+    if metadata_lines:
+        fig.text(0.01, 0.01, "\n".join(metadata_lines),
+                 fontsize=5.5, family="monospace", va="bottom")
 
     ax.set_xlim(radius[0], radius[-1])
     ax.set_ylim(-1.15 * amplitude, 1.15 * amplitude)
@@ -83,13 +116,14 @@ def main():
         fig, update, frames=len(snapshots), interval=40, blit=True
     )
 
-    VIDEO_DIR.mkdir(parents=True, exist_ok=True)
-    mp4_path = VIDEO_DIR / "oscillon.mp4"
+    video_dir = run_directory / "video"
+    video_dir.mkdir(parents=True, exist_ok=True)
+    mp4_path = video_dir / f"oscillon_{run_date}.mp4"
     try:
         animation.save(mp4_path, writer=FFMpegWriter(fps=25), dpi=150)
         print(f"wrote {mp4_path}")
     except Exception as error:
-        gif_path = VIDEO_DIR / "oscillon.gif"
+        gif_path = video_dir / f"oscillon_{run_date}.gif"
         print(f"MP4 export failed ({error}); writing {gif_path}")
         animation.save(gif_path, writer=PillowWriter(fps=25))
         print(f"wrote {gif_path}")
