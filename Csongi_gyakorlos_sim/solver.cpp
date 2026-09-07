@@ -50,11 +50,9 @@ double r_x_2(double x){
 // calculate the derivative vector of phi respect to ksi
 // todo boundary
 std::vector<double> phi_x(const std::vector<double>& phi){
-    // todo return N elements
-    std::vector<double> res;
-    res.push_back(0);
+    std::vector<double> res(params::N, 0.0);
     for(int i = 1; i < params::N - 1; ++i){
-        res.push_back( (phi[i+1] - phi[i-1]) / (2*params::dx) );
+        res[i] = (phi[i+1] - phi[i-1]) / (2*params::dx);
     }
     return res;
 }
@@ -62,10 +60,10 @@ std::vector<double> phi_x(const std::vector<double>& phi){
 // calculate the second derivative vector of phi respect to ksi
 // todo boundary
 std::vector<double> phi_x_2(const std::vector<double>& phi){
-    std::vector<double> res;
-    res.push_back(0);
+    std::vector<double> res(params::N, 0.0);
     for(int i = 1; i < params::N - 1; ++i){
-        res.push_back( (phi[i+1] - 2 * phi[i] + phi[i-1]) / (params::dx * params::dx) );
+        res[i] = (phi[i+1] - 2 * phi[i] + phi[i-1])
+               / (params::dx * params::dx);
     }
     return res;
 }
@@ -96,8 +94,9 @@ double sponge(double r){
     if(r < params::R_sp){
         return 0.0;
     }
-    double base = params::G_0 * ((r - params::R_sp)/(params::R_max - params::R_sp));
-    return std::pow(base, params::S_exp);
+    const double fraction = (r - params::R_sp)
+                          / (params::R_max - params::R_sp);
+    return params::G_0 * std::pow(fraction, params::S_exp);
 }
 
 // we claculate the state a little timestep later and put it to dydt
@@ -112,8 +111,9 @@ void rhs(const State& y, State& dydt){
 
     // calcualting the change at the origin
     dydt.phi[0] = y.pi[0];
-    dydt.pi[0] = 6 / (r_x(0.0) * r_x(0.0)) * (y.phi[1] -y.phi[0]) / (params::dx * params::dx) -
-    V_phi(y.phi[0]);
+    dydt.pi[0] = 6.0 / (r_x(0.0) * r_x(0.0))
+               * (y.phi[1] - y.phi[0]) / (params::dx * params::dx)
+               - V_phi(y.phi[0]);
 
 
     for(int i = 1; i < params::N-1; ++i){
@@ -212,6 +212,9 @@ void write_run_info(std::ofstream& out, const std::string& id,
         << "lambda=" << params::lambda << '\n'
         << "alpha=" << params::alpha << '\n'
         << "R_max=" << params::R_max << '\n'
+        << "R_sp=" << params::R_sp << '\n'
+        << "G_0=" << params::G_0 << '\n'
+        << "S_exp=" << params::S_exp << '\n'
         << "N=" << params::N << '\n'
         << "dx=" << params::dx << '\n'
         << "T=" << params::T << '\n'
@@ -296,7 +299,7 @@ int run_sweep() {
         return 1;
     }
 
-    manifest << "run_id,A,R0,m,lambda,alpha,R_max,N,dx,T,CFL,dt,"
+    manifest << "run_id,A,R0,m,lambda,alpha,R_max,R_sp,G_0,S_exp,N,dx,T,CFL,dt,"
              << "output_every,status,relative_path\n"
              << std::setprecision(17);
 
@@ -314,6 +317,8 @@ int run_sweep() {
             manifest << id << ',' << params::A << ',' << params::R0 << ','
                      << params::m << ',' << params::lambda << ','
                      << params::alpha << ',' << params::R_max << ','
+                     << params::R_sp << ',' << params::G_0 << ','
+                     << params::S_exp << ','
                      << params::N << ',' << params::dx << ',' << params::T << ','
                      << params::CFL << ',' << params::dt << ','
                      << params::output_every << ','

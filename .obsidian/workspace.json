@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "build/claim_source_ledger.md",
+                "file": "Csongi_gyakorlos_sim/parameter_sweep.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "claim_source_ledger"
+              "title": "parameter_sweep"
             }
           }
         ]
@@ -99,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "build/claim_source_ledger.md",
+                "file": "Csongi_gyakorlos_sim/parameter_sweep.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -187,13 +187,24 @@
   },
   "active": "02634fd1c822552b",
   "lastOpenFiles": [
+    "Csongi_gyakorlos_sim/output/sweep/run_011_A1p20_R02p00/video/oscillon_2026-09-07.mp4",
+    "Csongi_gyakorlos_sim/output/sweep/run_008_A0p80_R02p86/video/oscillon_2026-09-07.mp4",
+    "Csongi_gyakorlos_sim/output/sweep/run_011_A1p20_R02p00/video",
+    "Csongi_gyakorlos_sim/output/sweep/run_008_A0p80_R02p86/video",
+    "Csongi_gyakorlos_sim/output/sweep/run_007_A0p80_R02p50/video/oscillon_2026-09-07.mp4",
+    "Csongi_gyakorlos_sim/output/sweep/run_007_A0p80_R02p50/video",
+    "Csongi_gyakorlos_sim/output/sweep/run_006_A0p80_R02p00/video/oscillon_2026-09-07.mp4",
+    "Csongi_gyakorlos_sim/output/sweep/run_006_A0p80_R02p00/video",
+    "Csongi_gyakorlos_sim/output/sweep/run_005_A0p40_R05p00/video/oscillon_2026-09-07.mp4",
+    "Csongi_gyakorlos_sim/output/sweep/run_005_A0p40_R05p00/video",
+    "Csongi_gyakorlos_sim/output/sweep/run_004_A0p40_R03p50/video/oscillon_2026-09-07.mp4",
+    "build/claim_source_ledger.md",
     "AI SLOP/claim_source_ledger.md",
     "AI SLOP/cpp/claim_source_ledger.md",
     "DIAGRAM_BALANCE.md",
     "TOC.md",
     "AI SLOP/report-source.md",
     "AI SLOP/cpp/report-source.md",
-    "2_simulation_notes.pdf",
     "Gondolatok, kerdesek.md",
     "Untitled.md",
     "report-source.md"
