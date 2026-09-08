@@ -7,6 +7,7 @@
 #include <iomanip>
 #include <iostream>
 #include <sstream>
+#include <stdexcept>
 #include <string>
 
 // list of the tunable parameters
@@ -16,7 +17,7 @@ namespace params{
     double alpha = 4; // grid stretching parameter 
     double R_max = 10; // maximum distance
     double R_sp = 7.5; // start of the sponge layer
-    double G_0 = 7.5; // Gamma_0, sponge coeff.
+    double G_0 = 7.0; // Gamma_0, sponge coeff.
     double S_exp = 2.0; // the exponent in the sponge layer
     int N = 500; // the number of the spatial points
     double dx = 1.0 / (N - 1); // the computational step
@@ -26,6 +27,7 @@ namespace params{
     double A = 0.4;
     double R0 = 2;
     int output_every = 25;
+    int origin_every = 25;
 
 }
 
@@ -79,7 +81,7 @@ struct State{
 };
 
 
-// potential function (symmetric phi^4 model)
+// potential function (original symmetric phi^4 model)
 double V(double phi){
     return 0.5*params::m*params::m*phi*phi - 0.25*params::lambda*phi*phi*phi*phi;
 }
@@ -87,6 +89,50 @@ double V(double phi){
 // the derivative of the potential function with respect to phi
 double V_phi(double phi){
     return params::m*params::m*phi - params::lambda*phi*phi*phi;
+}
+
+double integrate_uniform(const std::vector<double>& values){
+    if(values.size() < 2)
+        return 0.0;
+
+    const int last = static_cast<int>(values.size()) - 1;
+    double result = 0.0;
+
+    // Simpson's rule over an even number of intervals.  With the current
+    // default N=500, the final interval is integrated with a trapezoid.
+    const int simpson_last = (last % 2 == 0) ? last : last - 1;
+    result = values[0] + values[simpson_last];
+    for(int i = 1; i < simpson_last; ++i)
+        result += (i % 2 == 0 ? 2.0 : 4.0) * values[i];
+    result *= params::dx / 3.0;
+
+    if(simpson_last != last)
+        result += 0.5 * params::dx * (values[last - 1] + values[last]);
+    return result;
+}
+
+double total_energy(const State& y){
+    std::vector<double> energy_density(params::N, 0.0);
+    for(int i = 0; i < params::N; ++i){
+        const double x = i * params::dx;
+        double phi_r = 0.0;
+        if(i == params::N - 1){
+            phi_r = (y.phi[i] - y.phi[i - 1])
+                  / (params::dx * r_x(x));
+        } else if(i > 0){
+            const double phi_x = (y.phi[i + 1] - y.phi[i - 1])
+                               / (2.0 * params::dx);
+            phi_r = phi_x / r_x(x);
+        }
+
+        const double radius = r(x);
+        const double density = 0.5 * y.pi[i] * y.pi[i]
+                             + 0.5 * phi_r * phi_r
+                             + V(y.phi[i]);
+        energy_density[i] = density * radius * radius * r_x(x);
+    }
+
+    return 4.0 * std::acos(-1.0) * integrate_uniform(energy_density);
 }
 
 //sponge layer
@@ -223,6 +269,8 @@ void write_run_info(std::ofstream& out, const std::string& id,
         << "A=" << params::A << '\n'
         << "R0=" << params::R0 << '\n'
         << "output_every=" << params::output_every << '\n'
+        << "origin_every=" << params::origin_every << '\n'
+        << "energy_every=" << params::origin_every << '\n'
         << "initial_pi=0\n";
 }
 
@@ -247,7 +295,9 @@ bool run_simulation(const std::filesystem::path& directory,
     std::filesystem::create_directories(directory);
     std::ofstream snapshots(directory / "snapshots.dat");
     std::ofstream info(directory / "run_info.txt");
-    if(!snapshots || !info){
+    std::ofstream origin(directory / "origin.dat");
+    std::ofstream energies(directory / "energy.dat");
+    if(!snapshots || !info || !origin || !energies){
         std::cerr << "failed to open output files in " << directory << '\n';
         return false;
     }
@@ -257,6 +307,13 @@ bool run_simulation(const std::filesystem::path& directory,
     const int n_steps = static_cast<int>(params::T / params::dt);
     for(int i = 0; i <= n_steps; ++i){
         const double t = i * params::dt;
+
+        if(i % params::origin_every == 0 || i == n_steps)
+            origin << std::setprecision(15) << t << ' ' << y.phi[0] << '\n';
+
+        if(i % params::origin_every == 0 || i == n_steps)
+            energies << std::setprecision(15) << t << ' '
+                     << total_energy(y) << '\n';
 
         if(i % params::output_every == 0 || i == n_steps)
             write_snapshot(snapshots, y, t);
@@ -280,8 +337,8 @@ bool run_simulation(const std::filesystem::path& directory,
     return true;
 }
 
-int run_single() {
-    return run_simulation("output", "single", run_date(), true) ? 0 : 1;
+int run_single(const std::filesystem::path& output_directory) {
+    return run_simulation(output_directory, "single", run_date(), true) ? 0 : 1;
 }
 
 int run_sweep() {
@@ -338,8 +395,34 @@ int main(int argc, char** argv){
     if (argc > 1 && std::string(argv[1]) == "sweep")
         return run_sweep();
     if (argc > 1 && std::string(argv[1]) != "single") {
-        std::cerr << "usage: " << argv[0] << " [single|sweep]\n";
+        std::cerr << "usage: " << argv[0]
+                  << " [single [A R0 T output_every origin_every output_dir N]]\n";
         return 2;
     }
-    return run_single();
+
+    try {
+        if (argc > 2) params::A = std::stod(argv[2]);
+        if (argc > 3) params::R0 = std::stod(argv[3]);
+        if (argc > 4) params::T = std::stod(argv[4]);
+        if (argc > 5) params::output_every = std::stoi(argv[5]);
+        if (argc > 6) params::origin_every = std::stoi(argv[6]);
+        if (params::output_every <= 0 || params::origin_every <= 0)
+            throw std::invalid_argument("output intervals must be positive");
+        if (argc > 7) {
+            std::filesystem::path output_directory = argv[7];
+            if (argc > 8) params::N = std::stoi(argv[8]);
+            if (params::N < 3)
+                throw std::invalid_argument("N must be at least 3");
+            params::dx = 1.0 / (params::N - 1);
+            params::dt = params::CFL
+                       * (params::alpha * params::R_max / std::sinh(params::alpha))
+                       * params::dx;
+            return run_single(output_directory);
+        }
+    } catch (const std::exception& error) {
+        std::cerr << "invalid command-line parameter: " << error.what() << '\n';
+        return 2;
+    }
+
+    return run_single("output");
 }

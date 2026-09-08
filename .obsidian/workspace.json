@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Csongi_gyakorlos_sim/parameter_sweep.md",
+                "file": "AI SLOP/report-source.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "parameter_sweep"
+              "title": "report-source"
             }
           }
         ]
@@ -99,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Csongi_gyakorlos_sim/parameter_sweep.md",
+                "file": "AI SLOP/report-source.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -187,19 +187,26 @@
   },
   "active": "02634fd1c822552b",
   "lastOpenFiles": [
-    "Csongi_gyakorlos_sim/output/sweep/run_011_A1p20_R02p00/video/oscillon_2026-09-07.mp4",
-    "Csongi_gyakorlos_sim/output/sweep/run_008_A0p80_R02p86/video/oscillon_2026-09-07.mp4",
-    "Csongi_gyakorlos_sim/output/sweep/run_011_A1p20_R02p00/video",
-    "Csongi_gyakorlos_sim/output/sweep/run_008_A0p80_R02p86/video",
-    "Csongi_gyakorlos_sim/output/sweep/run_007_A0p80_R02p50/video/oscillon_2026-09-07.mp4",
-    "Csongi_gyakorlos_sim/output/sweep/run_007_A0p80_R02p50/video",
-    "Csongi_gyakorlos_sim/output/sweep/run_006_A0p80_R02p00/video/oscillon_2026-09-07.mp4",
-    "Csongi_gyakorlos_sim/output/sweep/run_006_A0p80_R02p00/video",
-    "Csongi_gyakorlos_sim/output/sweep/run_005_A0p40_R05p00/video/oscillon_2026-09-07.mp4",
-    "Csongi_gyakorlos_sim/output/sweep/run_005_A0p40_R05p00/video",
-    "Csongi_gyakorlos_sim/output/sweep/run_004_A0p40_R03p50/video/oscillon_2026-09-07.mp4",
-    "build/claim_source_ledger.md",
+    "Csongi_gyakorlos_sim/output/long_lived/energy.png",
+    "Csongi_gyakorlos_sim/output/long_lived/energy.dat",
+    "Csongi_gyakorlos_sim/output/energy_test/oscillon_speedup.mp4",
+    "Csongi_gyakorlos_sim/output/energy_test/energy.png",
+    "Csongi_gyakorlos_sim/output/energy_test/origin_displacement.png",
+    "Csongi_gyakorlos_sim/output/energy_test/snapshots.dat",
+    "Csongi_gyakorlos_sim/output/energy_test/run_info.txt",
+    "Csongi_gyakorlos_sim/output/energy_test/origin.dat",
+    "Csongi_gyakorlos_sim/output/energy_test/energy.dat",
+    "Csongi_gyakorlos_sim/output/energy_test",
+    "Csongi_gyakorlos_sim/output/probe/best_A0p80_R02p86_T1000/snapshots.dat",
+    "Csongi_gyakorlos_sim/output/probe/best_A0p80_R02p86_T1000/run_info.txt",
+    "Csongi_gyakorlos_sim/output/probe/best_A0p80_R02p86_T1000/origin.dat",
+    "Csongi_gyakorlos_sim/output/original_test/origin_displacement.png",
+    "Csongi_gyakorlos_sim/output/long_lived/origin_displacement.png",
     "AI SLOP/claim_source_ledger.md",
+    "Csongi_gyakorlos_sim/parameter_sweep.md",
+    "Csongi_gyakorlos_sim/output/long_lived_test_n250/origin_displacement.png",
+    "Csongi_gyakorlos_sim/output/long_lived_test/origin_displacement.png",
+    "build/claim_source_ledger.md",
     "AI SLOP/cpp/claim_source_ledger.md",
     "DIAGRAM_BALANCE.md",
     "TOC.md",
