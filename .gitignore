@@ -22,6 +22,7 @@
 
 # Data
 *.dat
+*.txt
 
 # PDFs
 *.pdf
