@@ -1,2 +1,4 @@
-- Nem teljesen ertem, hogy a [[2_simulation_notes.pdf]] jegyzetben miert mondjuk azt, hogy a Klein-Gordon egyenletet hasznaljuk ha kozbena tomeggel es $\phi$ -vel aranyos tag nincs is benne az egyenletben, de a sajat magaval interaktalo potencialban sem.
-- Azert kell a sponge layer mert az egyenletunk hasznal egy $\nabla^2$-t es azt nem tudjuk csak a vegen levagni? 
+- Nem teljesen ertem, hogy a [[2_simulation_notes.pdf]] jegyzetben miert mondjuk azt, hogy a Klein-Gordon egyenletet hasznaljuk, ha kozben a tomeggel es $\phi$ -vel aranyos tag nincs is benne az egyenletben, de a sajat magaval interaktalo potencialban sem. {Csongi}
+    - De benne van, mert $V' = m^2\phi - \lambda\phi^3$. {Milan}
+- Azert kell a sponge layer, mert az egyenletunk hasznal egy $\nabla^2$-t es azt nem tudjuk csak a vegen levagni? {Csongi}
+    - Igen, erre vmi olyasmit mondott Takacs, hogy "nem tudjuk, mi verodik vissza, amit le kell vagni", vagy ha levagnank, a $\nabla^2$ elrontana a megoldast. {Milan}
