@@ -1,9 +1,0 @@
-cd /home/csongi/Documents/TDK_26/Csongi_gyakorlos_sim
-make run
-make animate
-
-# Run the literature-informed A--R0 parameter sweep:
-make sweep
-
-# Animate one selected sweep result, for example:
-python3 animate.py --run output/sweep/run_001_A0p40_R02p00

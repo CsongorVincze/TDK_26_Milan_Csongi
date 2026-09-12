@@ -8,6 +8,8 @@
 *.webp
 *.tiff
 *.ico
+*.json
+*.csv
 
 # Videos
 *.mp4
@@ -27,3 +29,7 @@
 
 # Reference implementation kept locally, not part of this work
 AI SLOP/
+
+# Generated simulation output (too large for GitHub)
+Csongi_gyakorlos_sim/output/
+__pycache__/

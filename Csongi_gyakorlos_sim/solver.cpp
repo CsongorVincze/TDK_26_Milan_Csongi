@@ -1,6 +1,7 @@
 #include <vector>
 #include <cmath>
 #include <algorithm>
+#include <chrono>
 #include <ctime>
 #include <filesystem>
 #include <fstream>
@@ -19,7 +20,7 @@ namespace params{
     double R_sp = 7.5; // start of the sponge layer
     double G_0 = 7.0; // Gamma_0, sponge coeff.
     double S_exp = 2.0; // the exponent in the sponge layer
-    int N = 500; // the number of the spatial points
+    int N = 2000; // the number of the spatial points
     double dx = 1.0 / (N - 1); // the computational step
     double T = 10; // full time
     double CFL = 0.2; // CFL constant
@@ -289,9 +290,28 @@ State initial_state() {
     return y;
 }
 
+class SolverTimer {
+public:
+    explicit SolverTimer(const std::string& id)
+        : id_(id), start_(std::chrono::steady_clock::now()) {}
+
+    ~SolverTimer() {
+        const std::chrono::duration<double> elapsed =
+            std::chrono::steady_clock::now() - start_;
+        std::cout << id_ << ": solver runtime = "
+                  << std::fixed << std::setprecision(3)
+                  << elapsed.count() << " s" << std::endl;
+    }
+
+private:
+    std::string id_;
+    std::chrono::steady_clock::time_point start_;
+};
+
 bool run_simulation(const std::filesystem::path& directory,
                     const std::string& id, const std::string& date,
                     bool print_progress) {
+    const SolverTimer timer(id);
     std::filesystem::create_directories(directory);
     std::ofstream snapshots(directory / "snapshots.dat");
     std::ofstream info(directory / "run_info.txt");
