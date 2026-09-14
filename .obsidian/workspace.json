@@ -11,14 +11,10 @@
             "id": "02634fd1c822552b",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "AI SLOP/report-source.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "report-source"
+              "title": "New tab"
             }
           }
         ]
@@ -99,7 +95,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "AI SLOP/report-source.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
