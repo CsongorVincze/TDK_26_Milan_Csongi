@@ -173,8 +173,13 @@ def system(t, state):
     phi[-1] = 0
     Pi[-1] = 0
 
-    dphi = Pi.copy()
-    dPi = np.zeros_like(Pi)
+    # Use one derivative buffer instead of separately allocating dphi and dPi
+    # and concatenating them at the end of every RHS evaluation.
+    dstate = np.empty_like(state)
+    dphi = dstate[:N]
+    dPi = dstate[N:]
+    dphi[:] = Pi
+    dPi.fill(0.0)
 
     #? ezt itt nem teljesen ertem (csongi)
     dPi[0] = (
@@ -197,7 +202,7 @@ def system(t, state):
     - gamma[-1]*Pi[-1]
     )
 
-    return np.concatenate([dphi, dPi])
+    return dstate
 
 # Initial profile
 
