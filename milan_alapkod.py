@@ -128,6 +128,23 @@ for i in range(N):
 
 dr_min = alpha*R_max/np.sinh(alpha)*dx
 
+# Coefficients used by the spatial finite-difference operator. These depend
+# only on the fixed grid, so calculate them once instead of in every RHS call.
+inv_dx2 = 1/dx**2
+inv_2dx = 1/(2*dx)
+interior_inv_dr_dx2 = 1/dr_dx[1:-1]**2
+interior_radial_coefficient = (
+    (d-1)/(r[1:-1]*dr_dx[1:-1])
+    - d2r_dx2[1:-1]/dr_dx[1:-1]**3
+)
+origin_laplacian_coefficient = 2*d/dr_dx[0]**2
+outer_inv_dr_dx2 = 1/dr_dx[-1]**2
+outer_radial_coefficient = (
+    (d-1)/(r[-1]*dr_dx[-1])
+    - d2r_dx2[-1]/dr_dx[-1]**3
+)
+interior_gamma = gamma[1:-1]
+
 if extra_plots:
     fig, axs = plt.subplots(1, 2, figsize=(12, 5))
 
@@ -161,21 +178,21 @@ def system(t, state):
 
     #? ezt itt nem teljesen ertem (csongi)
     dPi[0] = (
-    d/(dr_dx[0]**2) * (2*(phi[1]-phi[0])/(dx**2))
+    origin_laplacian_coefficient * (phi[1]-phi[0]) * inv_dx2
     - dV_dphi(phi[0])
     )
     
     dPi[1:-1] = (
-    1/(dr_dx[1:-1]**2) * ((phi[2:]-2*phi[1:-1]+phi[:-2])/(dx**2))
-    + ((d-1)/(r[1:-1]*dr_dx[1:-1])-d2r_dx2[1:-1]/(dr_dx[1:-1]**3)) * ((phi[2:]-phi[:-2])/(2*dx))
+    interior_inv_dr_dx2 * (phi[2:]-2*phi[1:-1]+phi[:-2]) * inv_dx2
+    + interior_radial_coefficient * (phi[2:]-phi[:-2]) * inv_2dx
     - dV_dphi(phi[1:-1])
-    - gamma[1:-1]*Pi[1:-1]
+    - interior_gamma*Pi[1:-1]
     )
 
     #? jo ezt talan ertem (csongi)
     dPi[-1] = (
-    1/(dr_dx[-1]**2) * ((0-2*phi[-1]+phi[-2])/(dx**2))
-    + ((d-1)/(r[-1]*dr_dx[-1])-d2r_dx2[-1]/(dr_dx[-1]**3)) * ((0-phi[-1])/(2*dx))
+    outer_inv_dr_dx2 * (0-2*phi[-1]+phi[-2]) * inv_dx2
+    + outer_radial_coefficient * (0-phi[-1]) * inv_2dx
     - dV_dphi(phi[-1])
     - gamma[-1]*Pi[-1]
     )
