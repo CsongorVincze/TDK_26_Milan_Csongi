@@ -25,6 +25,7 @@ initial_profile_file = "initial_profile.png"
 plot_profile_count = 5
 plot_amplitude_factor = 5
 output_file = "test.jpg"
+energy_plot_file = "energy_time.png"
 color_map = "winter"
 plot_dpi = 150
 
@@ -94,23 +95,6 @@ def V(phi):
 def dV_dphi(phi):
     return m**2*phi - mu*phi**3
 
-if extra_plots:
-    phi_plot = np.linspace(potential_plot_min, potential_plot_max,
-                           potential_plot_samples)
-    Vlist = np.zeros_like(phi_plot)
-    dVlist = np.zeros_like(phi_plot)
-    for i, l in np.ndenumerate(phi_plot):
-        Vlist[i] = V(l)
-        dVlist[i] = dV_dphi(l)
-    fig, ax = plt.subplots(1, 1, figsize=(6, 5))
-    ax.plot(phi_plot, Vlist)
-    ax.plot(phi_plot, dVlist)
-    ax.set_title('Potential functions $V(\\phi)$ and $V\'(\\phi)$')
-    ax.set_xlabel('$\\phi$')
-    ax.set_ylabel('Values')
-    ax.legend(['$V(\\phi)$', '$V\'(\\phi)$'])
-    save_figure(fig, Path(extra_plot_directory) / potential_plot_file)
-
 # Non-uniform coordinate mapping
 
 x = np.linspace(0, 1, N)
@@ -145,23 +129,6 @@ outer_radial_coefficient = (
 )
 interior_gamma = gamma[1:-1]
 
-if extra_plots:
-    fig, axs = plt.subplots(1, 2, figsize=(12, 5))
-
-    axs[0].plot(x, r)
-    axs[0].plot(x, dr_dx)
-    axs[0].plot(x, d2r_dx2)
-    axs[0].set_title('Grid mapping functions r(x), r\'(x), r\"(x)')
-    axs[0].set_xlabel('x')
-    axs[0].set_ylabel('Values')
-    axs[0].legend(['r(x)', 'r\'(x)', 'r\"(x)'])
-
-    axs[1].plot(x, gamma)
-    axs[1].set_title('Sponge layer damping factor $\\gamma(x)$')
-    axs[1].set_xlabel('x')
-    axs[1].set_ylabel('$\\gamma(x)$')
-    axs[1].legend(['$\\gamma(x)$ = $\\gamma_0 \\left(\\frac{r(x) - R_{sponge}}{R_{max} - R_{sponge}}\\right)^p$'])
-    save_figure(fig, Path(extra_plot_directory) / grid_plot_file)
 
 # System of ODEs
 
@@ -204,6 +171,20 @@ def system(t, state):
 
     return dstate
 
+def energy_per_point(phi, Pi):
+    """Return the local energy density at every radial grid point."""
+    dphi_dr = np.empty_like(phi)
+    dphi_dr[0] = 0.0
+    dphi_dr[1:-1] = (
+        (phi[2:] - phi[:-2]) * inv_2dx / dr_dx[1:-1]
+    )
+    dphi_dr[-1] = (
+        (3*phi[-1] - 4*phi[-2] + phi[-3])
+        * inv_2dx / dr_dx[-1]
+    )
+
+    return 0.5 * Pi**2 + 0.5 * dphi_dr**2 + V(phi)
+
 # Initial profile
 
 def phi0(A, R_0, r):
@@ -213,16 +194,6 @@ phi = np.zeros_like(r)
 dphi_dt = np.zeros_like(r)
 for i, ri in np.ndenumerate(r):
     phi[i] = phi0(A, R_0, ri)
-
-if extra_plots:
-    fig, ax = plt.subplots(1, 1, figsize=(6, 5))
-    ax.plot(r, phi)
-    ax.plot(r, dphi_dt)
-    ax.set_title('Initial profile of $\\phi(r)$ and $\\dot{\\phi}(r)$')
-    ax.set_xlabel('r')
-    ax.set_ylabel('Values')
-    ax.legend(['$\\phi(0,r)$', '$\\dot{\\phi}(0,r)$'])
-    save_figure(fig, Path(extra_plot_directory) / initial_profile_file)
 
 # Solving the system of ODEs
 
@@ -240,6 +211,74 @@ solution = itg.solve_ivp(
     rtol=solver_rtol,
     atol=solver_atol,
 )
+
+# Calculate the total energy at the stored solver output times.
+energy = np.empty(solution.t.size)
+for j in range(solution.t.size):
+    sigma = energy_per_point(solution.y[:N, j], solution.y[N:, j])
+    energy[j] = 4*np.pi * itg.simpson(
+        sigma * r**(d - 1) * dr_dx,
+        x=x,
+    )
+
+# ============================================================================
+# Plotting
+# ============================================================================
+
+if extra_plots:
+    phi_plot = np.linspace(potential_plot_min, potential_plot_max,
+                           potential_plot_samples)
+    Vlist = np.zeros_like(phi_plot)
+    dVlist = np.zeros_like(phi_plot)
+    for i, l in np.ndenumerate(phi_plot):
+        Vlist[i] = V(l)
+        dVlist[i] = dV_dphi(l)
+
+    potential_fig, potential_ax = plt.subplots(figsize=(6, 5))
+    potential_ax.plot(phi_plot, Vlist)
+    potential_ax.plot(phi_plot, dVlist)
+    potential_ax.set_title('Potential functions $V(\\phi)$ and $V\'(\\phi)$')
+    potential_ax.set_xlabel('$\\phi$')
+    potential_ax.set_ylabel('Values')
+    potential_ax.legend(['$V(\\phi)$', '$V\'(\\phi)$'])
+    save_figure(
+        potential_fig,
+        Path(extra_plot_directory) / potential_plot_file,
+    )
+
+    grid_fig, grid_axs = plt.subplots(1, 2, figsize=(12, 5))
+    grid_axs[0].plot(x, r)
+    grid_axs[0].plot(x, dr_dx)
+    grid_axs[0].plot(x, d2r_dx2)
+    grid_axs[0].set_title('Grid mapping functions r(x), r\'(x), r"(x)')
+    grid_axs[0].set_xlabel('x')
+    grid_axs[0].set_ylabel('Values')
+    grid_axs[0].legend(['r(x)', 'r\'(x)', 'r"(x)'])
+
+    grid_axs[1].plot(x, gamma)
+    grid_axs[1].set_title('Sponge layer damping factor $\\gamma(x)$')
+    grid_axs[1].set_xlabel('x')
+    grid_axs[1].set_ylabel('$\\gamma(x)$')
+    grid_axs[1].legend([
+        '$\\gamma(x)$ = $\\gamma_0 \\left(\\frac{r(x) - R_{sponge}}'
+        ' {R_{max} - R_{sponge}}\\right)^p$'
+    ])
+    save_figure(
+        grid_fig,
+        Path(extra_plot_directory) / grid_plot_file,
+    )
+
+    initial_fig, initial_ax = plt.subplots(figsize=(6, 5))
+    initial_ax.plot(r, phi)
+    initial_ax.plot(r, dphi_dt)
+    initial_ax.set_title('Initial profile of $\\phi(r)$ and $\\dot{\\phi}(r)$')
+    initial_ax.set_xlabel('r')
+    initial_ax.set_ylabel('Values')
+    initial_ax.legend(['$\\phi(0,r)$', '$\\dot{\\phi}(0,r)$'])
+    save_figure(
+        initial_fig,
+        Path(extra_plot_directory) / initial_profile_file,
+    )
 
 cmap = plt.get_cmap(color_map)
 
@@ -269,6 +308,14 @@ axs[1].set_ylim([-plot_amplitude_factor*A, plot_amplitude_factor*A])
 axs[1].legend(loc='upper right', fontsize=8)
 
 save_figure(fig, output_file)
+
+energy_fig, energy_ax = plt.subplots(figsize=(7, 5))
+energy_ax.plot(solution.t, energy, color="tab:purple")
+energy_ax.set_title("Total energy of the system")
+energy_ax.set_xlabel("t")
+energy_ax.set_ylabel("E(t)")
+energy_ax.grid(True, alpha=0.3)
+save_figure(energy_fig, energy_plot_file)
 
 if show_plots:
     plt.show()
