@@ -30,18 +30,18 @@ color_map = "winter"
 plot_dpi = 150
 
 # Grid parameters
-N = 100
+N = 1000
 R_max = 10
 alpha = 5
 
 # Sponge-layer parameters
-R_sponge_fraction = 0.75
+R_sponge_fraction = 1.0
 gamma_0 = 7
 p = 3
 
 # Potential parameters
-m = 1
-mu = 1
+m = 1.0
+mu = 1.0
 
 # Courant-Friedrichs-Lewy stability condition
 C_CFL = 0.4
@@ -50,13 +50,13 @@ C_CFL = 0.4
 d = 3
 
 # Initial profile parameters
-A = 0.2
+A = 0.8
 R_0 = 2.5
 
 # Time-integration parameters
 t0 = 0
-T = 5
-time_samples = 100
+T = 100
+time_samples = 10000
 solver_method = "RK45"
 solver_rtol = 1e-6
 solver_atol = 1e-9
