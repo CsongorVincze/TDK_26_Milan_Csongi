@@ -1,5 +1,6 @@
 from datetime import datetime
 from pathlib import Path
+import time
 
 import numpy as np
 import scipy.integrate as itg
@@ -12,6 +13,8 @@ from matplotlib.lines import Line2D
 # ============================================================================
 
 # Diagnostics and plotting
+show_progress = True
+progress_interval_seconds = 5.0
 extra_plots = True
 save_figures = True
 show_plots = True
@@ -30,18 +33,19 @@ color_map = "winter"
 plot_dpi = 150
 
 # Grid parameters
-N = 1000
-R_max = 10
+N = 500
+R_max = 25
 alpha = 5
 
 # Sponge-layer parameters
-R_sponge_fraction = 1.0
+R_sponge_fraction = 0.8
 gamma_0 = 7
 p = 3
 
-# Potential parameters
-m = 1.0
-mu = 1.0
+# Shifted double-well potential parameters. This is the standard phi^4
+# potential written so that the vacuum at phi=0 matches the outer boundary.
+# The literature Gaussian exp(-r**2/r0**2) corresponds to the R_0 below via
+# exp(-r**2/(2*R_0**2)), so R_0 = 2.70716/sqrt(2).
 
 # Courant-Friedrichs-Lewy stability condition
 C_CFL = 0.4
@@ -50,12 +54,12 @@ C_CFL = 0.4
 d = 3
 
 # Initial profile parameters
-A = 0.8
-R_0 = 2.5
+A = 2.0
+R_0 = 1.915
 
 # Time-integration parameters
 t0 = 0
-T = 100
+T = 7000
 time_samples = 10000
 solver_method = "RK45"
 solver_rtol = 1e-6
@@ -71,6 +75,45 @@ end = -1
 dx = 1/(N-1)
 R_sponge = R_sponge_fraction * R_max
 date_tag = datetime.now().strftime("%m-%d")
+
+# Progress-bar state. The solver calls system() many times, so the display is
+# throttled instead of printing once per RHS evaluation.
+progress_started_at = None
+progress_last_update = 0.0
+
+
+def update_progress(current_t, force=False):
+    """Display approximate integration progress and remaining wall time."""
+    global progress_started_at, progress_last_update
+
+    if not show_progress:
+        return
+
+    now = time.perf_counter()
+    if progress_started_at is None:
+        progress_started_at = now
+    if not force and now - progress_last_update < progress_interval_seconds:
+        return
+
+    duration = max(T - t0, np.finfo(float).eps)
+    fraction = np.clip((current_t - t0) / duration, 0.0, 1.0)
+    elapsed = now - progress_started_at
+    filled = int(30 * fraction)
+    bar = "=" * filled + " " * (30 - filled)
+
+    if fraction > 0:
+        remaining = elapsed * (1 - fraction) / fraction
+        eta = f"ETA {remaining / 60:.1f} min"
+    else:
+        eta = "ETA --"
+
+    print(
+        f"\r[{bar}] {100 * fraction:6.2f}% "
+        f"t={current_t:.1f}/{T:g} | elapsed {elapsed / 60:.1f} min | {eta}",
+        end="",
+        flush=True,
+    )
+    progress_last_update = now
 
 
 def dated_filename(filename):
@@ -91,9 +134,11 @@ def save_figure(figure, filename):
 # Self-interaction potential
 
 def V(phi):
-    return 1/2*m**2*phi**2 - 1/4*mu*phi**4
+    return 0.25 * phi**2 * (phi - 2)**2
+
+
 def dV_dphi(phi):
-    return m**2*phi - mu*phi**3
+    return phi * (phi - 1) * (phi - 2)
 
 # Non-uniform coordinate mapping
 
@@ -133,6 +178,8 @@ interior_gamma = gamma[1:-1]
 # System of ODEs
 
 def system(t, state):
+    update_progress(t)
+
     phi = state[:N]
     Pi = state[N:]
 
@@ -200,6 +247,8 @@ for i, ri in np.ndenumerate(r):
 init = np.concatenate([phi, dphi_dt])
 dt = C_CFL*dr_min
 t_eval = np.linspace(t0, T, time_samples)
+progress_started_at = time.perf_counter()
+progress_last_update = 0.0
 
 solution = itg.solve_ivp(
     system,
@@ -211,6 +260,11 @@ solution = itg.solve_ivp(
     rtol=solver_rtol,
     atol=solver_atol,
 )
+
+update_progress(solution.t[-1], force=True)
+if show_progress:
+    elapsed = time.perf_counter() - progress_started_at
+    print(f"\nSolver finished in {elapsed / 60:.1f} min.")
 
 # Calculate the total energy at the stored solver output times.
 energy = np.empty(solution.t.size)
@@ -291,7 +345,7 @@ axs[0].set_xlim([t0, T])
 axs[0].set_ylim([-plot_amplitude_factor*A, plot_amplitude_factor*A])
 params = Line2D([0], [0], color="none", marker="", linestyle="none", 
                 label=rf"$A={A}, R_0={R_0}$"+"\n"
-                +rf"$d={d}, m={m}, \lambda={mu}$"+"\n"
+                +"shifted double-well potential"+"\n"
                 +rf"$N={N}, R_{{max}}={R_max}, \alpha={alpha}$"+"\n"
                 +rf"$R_{{sponge}}={R_sponge}, \gamma_0={gamma_0}, p={p}$")
 axs[0].legend(handles=[params], handlelength=0, handletextpad=0)
