@@ -12,3 +12,5 @@ Csongi szept. 15.
 
 - Atrendeztem a plotok helyet a veger
 - beleraktam az energia szamolasat
+- uj branch a collapse-hoz
+- progressbar
