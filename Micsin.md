@@ -8,9 +8,14 @@ Csongi szept. 14.
 - kicsit kioptimalizaltam a futo loopot
 
 Csongi szept. 15.
-- 
+-
 
 - Atrendeztem a plotok helyet a veger
 - beleraktam az energia szamolasat
 - uj branch a collapse-hoz
 - progressbar
+
+Milán szept. 26.
+-
+
+- Átfutottam és egyszer futtatam a kódot
