@@ -9,7 +9,7 @@
 *.tiff
 *.ico
 *.json
-*.csv
+# *.csv
 
 # Videos
 *.mp4
