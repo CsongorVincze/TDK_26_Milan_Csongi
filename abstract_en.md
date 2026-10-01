@@ -1,0 +1,7 @@
+In this paper, we investigate the dynamics, radiation mechanisms, and dimension-dependent collapse of oscillons – spatially localized, long-lived, time-dependent, quasi-breather configurations [1] – appearing in real scalar field theories. Lacking topological protection, oscillons owe their stability to a dynamically emerging, approximate U(1)
+Noether symmetry; this symmetry, however, is non-perturbatively broken, causing the system to continuously lose energy in the form of classical radiation [1, 2].
+We discuss in detail how the choice of spatial dimension and self-interaction potential determines the system’s ultimate fate. In cases of singular behavior, the core size and central amplitude may exhibit self-similarity. We also address the role of the initial configuration and the power-law-like energy decay of the core. The dynamics are analyzed using a finite-difference numerical simulation on a 1D radial, non-uniform grid, solving the spherically symmetric equation of motion in 3D.
+
+Literature:
+[1] Gyula Fodor. „A review on radiation of oscillons and oscillatons". 2019. arXiv: 1911.03340 [hep-th]. url: https://arxiv.org/abs/1911.03340.
+[2] Botond Nagy. „Oszcillonok dinamikája" (Dynamics of Oscillons). TDK thesis. Budapest University of Technology and Economics, 2020.

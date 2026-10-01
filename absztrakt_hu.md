@@ -1,0 +1,6 @@
+A dolgozatban a valós skalártér-elméletekben megjelenő oszcillonok – térben lokalizált, hosszú élettartamú, időfüggő kvázi-lélegző konfigurációk [1] – dinamikáját, sugárzási mechanizmusát és dimenziófüggő összeomlását vizsgáljuk. Az oszcillonok topológiai védelem híján egy dinamikusan kialakuló, közelítő U(1) Noether-szimmetriának köszönhetik stabilitásukat, amely azonban nem-perturbatív módon sérül, így a rendszer klasszikus sugárzás formájában folyamatosan energiát veszít [1, 2].
+A dolgozatban részletesen tárgyaljuk, hogy a térbeli dimenzió és az önkölcsönhatási potenciál megválasztása hogyan határozza meg a rendszer végső kimenetelét. Szinguláris viselkedés esetén a mag mérete és a centrális amplitúdó önhasonlóvá válhat. Kitérünk továbbá a kezdeti alak szerepére, valamint a mag hatványfüggvény-szerű energiacsökkenésére. A dinamikát egy 1D radiális, nem-uniform rácson működő véges differenciás numerikus szimulációval vizsgáljuk, amely a 3D gömbszimmetrikus mozgásegyenletet oldja meg.
+
+Irodalom:
+[1] Gyula Fodor. „A review on radiation of oscillons and oscillatons". 2019. arXiv: 1911.03340 [hep-th]. url: https://arxiv.org/abs/1911.03340.
+[2] Nagy Botond. „Oszcillonok dinamikája”. TDK dolgozat. Budapesti Műszaki és Gazdaságtudományi Egyetem, 2020.
