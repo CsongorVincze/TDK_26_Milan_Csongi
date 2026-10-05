@@ -1,0 +1,2 @@
+N,horizon,collapse_cutoff,tolerance,transition_lower_noncollapsing,transition_upper_collapsing,transition_midpoint,bracket_width,midpoint_offset_from_N500_reference_percent,interpretation,cfl,r_max,stretch,sponge_fraction,sponge_strength,sponge_power,R0,initial_velocity
+1000,100.0,12.0,1e-08,1.2029703663637612,1.2029703737039084,1.2029703700338348,7.340147156753574e-09,0.029990539550772688,local transition only; other nearby amplitudes also collapse,0.4,25.0,5.0,0.8,7.0,3.0,2.0,0.0

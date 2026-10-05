@@ -144,6 +144,14 @@ trajectory is retained but did not reach even the first `|phi(0)|=20` level by
 estimated only by the joint high-field-tail fit, and near-collapse `alpha` is
 freely fitted.
 
+The finite-horizon outcomes in this amplitude band are non-monotone: the
+`+0.02875%` run does not reach `|phi(0)|=12` by `t=100`, while runs at lower
+offsets and again from `+0.03%` upward do. A narrow N=1000 bisection brackets
+one **local** outcome transition near `+0.02999054%` relative to the N=500
+reference; it is not a global critical amplitude. See the shared
+[scaling-diagnostics report](../../scaling_diagnostics/report.md) and
+[outcome map](../../scaling_diagnostics/results/n1000_finite_horizon_outcomes.png).
+
 All collapse trajectories use `N=1000`, but the adopted `Acrit=1.202609700896`
 was bracketed previously at `N=500`; this scan does not re-bracket it at
 `N=1000`. The small percentage offsets are relative to that existing reference.

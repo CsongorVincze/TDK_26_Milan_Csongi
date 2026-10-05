@@ -84,7 +84,7 @@ def main():
     for path, rows in ((RESULTS/"local_transition_search_N1000.csv", trials),
                        (RESULTS/"local_transition_summary_N1000.csv", summary)):
         with path.open("w", newline="", encoding="utf-8") as handle:
-            writer = csv.DictWriter(handle, fieldnames=list(rows[0]))
+            writer = csv.DictWriter(handle, fieldnames=list(rows[0]), lineterminator="\n")
             writer.writeheader()
             writer.writerows(rows)
     print(f"N=1000 local finite-horizon transition: [{lo:.12f}, {hi:.12f}] "

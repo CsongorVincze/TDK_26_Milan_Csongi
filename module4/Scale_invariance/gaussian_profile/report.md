@@ -177,6 +177,14 @@ scaling law: the scan was refined in response to the target relation, the
 radius definition matters, and the quoted fit errors do not include
 threshold/window/amplitude/resolution systematics.
 
+The underlying finite-horizon outcome scan is non-monotone around
+`+0.02875%` to `+0.03%`: the former does not reach `|phi(0)|=12` by `t=100`,
+while lower offsets and offsets from `+0.03%` upward do. The N=1000 bisection
+only identifies a local transition there, not a global critical amplitude.
+The [scaling-diagnostics report](../scaling_diagnostics/report.md) also
+compares fit windows and checks the dimensional argument for
+`alpha+beta=1`.
+
 The adopted `Acrit=1.202609700896` reference was previously bracketed with
 `N=500`; the collapse trajectories and exponent fits here are all `N=1000`,
 but this current scan does not re-bracket `Acrit` at `N=1000`. This limits how

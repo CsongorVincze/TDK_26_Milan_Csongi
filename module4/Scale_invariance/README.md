@@ -34,3 +34,9 @@ single-run reference and now uses only the joint high-field-tail fit for
 `tc` and `alpha`; the fixed-`alpha=1` estimator is retired. Broader N=500
 exploratory data remain in their original folders but are excluded from this
 N=1000 sensitivity search.
+
+The [scaling diagnostics](scaling_diagnostics/README.md) document an N=1000
+non-monotonic finite-horizon outcome interval, distinguish its local transition
+from a global critical amplitude, and show how `alpha+beta` changes with the
+fit window, field cutoff, and radius definition. The [findings report](scaling_diagnostics/report.md)
+also checks the dimensional argument for the notes' `alpha+beta=1` relation.
