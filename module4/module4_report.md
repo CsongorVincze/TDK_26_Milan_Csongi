@@ -1,5 +1,11 @@
 # Module 4 simulation and results
 
+> **Superseded diagnostic:** This report describes the old signed-energy
+> `<r^2>` core-radius analysis, whose radius-based beta fit was unreliable.
+> For current profile-width analyses, see the independent
+> [half-central-field radius study](Scale_invariance/Fraction_of_central/half_radius/report.md)
+> and the [Gaussian-profile width experiment](Scale_invariance/gaussian_profile/report.md).
+
 This report documents the implementation based on the Module 4 questions in
 [Oscillon_dynamics_notes_20260917.pdf](../Oscillon_dynamics_notes_20260917.pdf).
 
