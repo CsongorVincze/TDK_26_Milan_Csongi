@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "ef6af22514357772",
+        "id": "5395ddd3e044b7c4",
         "type": "tabs",
         "children": [
           {
-            "id": "02634fd1c822552b",
+            "id": "d04ab9a9c5f6cee0",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "module4/beta_collapse_study/report.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "report"
             }
           }
         ]
@@ -95,6 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "module4/beta_collapse_study/report.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -180,31 +185,35 @@
       "bases:Create new base": false
     }
   },
-  "active": "02634fd1c822552b",
+  "active": "844b75cbcfdd9fba",
   "lastOpenFiles": [
-    "module4/__pycache__/milan_alapkod_module4.cpython-314.pyc.139812609404112",
-    "module4/__pycache__/milan_alapkod_module4.cpython-314.pyc",
-    "module4/__pycache__",
-    "milan_alapkod/__pycache__/milan_alapkod.cpython-314.pyc",
-    "milan_alapkod/__pycache__",
+    "milan_alapkod/results/fourier_decay_fit.md",
+    "milan_alapkod/results/fourier_decay_fit_summary.json",
+    "milan_alapkod/results/fourier_decay_envelope.csv",
+    "milan_alapkod/results/fourier_decay_fit.png",
+    "milan_alapkod/__pycache__/fourier_decay_fit.cpython-314.pyc",
+    "milan_alapkod/fourier_decay_fit.py",
+    "module4/beta_collapse_study/results/observable_evolution.png",
+    "module4/beta_collapse_study/report.md",
+    "module4/beta_collapse_study/README.md",
+    "milan_alapkod/__pycache__/plot_long_time_decay.cpython-314.pyc.140665174284912",
+    "module4/__pycache__/milan_alapkod_module4.cpython-314.pyc.140665174284912",
+    "module4/results/module4_supercritical_beta_summary.csv",
+    "module4/results/module4_supercritical_beta_fits.png",
+    "module4/results/module4_supercritical_beta_08_A1.503262126.png",
+    "module4/results/module4_supercritical_beta_07_A1.322870671.png",
+    "module4/results/module4_supercritical_beta_06_A1.262740186.png",
+    "module4/results/module4_supercritical_beta_05_A1.214635798.png",
+    "module4/results/module4_supercritical_beta_04_A1.208622749.png",
+    "module4/results/module4_supercritical_beta_03_A1.203812311.png",
+    "module4/results/module4_supercritical_beta_02_A1.203211006.png",
+    "module4/__pycache__/milan_alapkod_module4.cpython-314.pyc.140579685882480",
+    "milan_alapkod/__pycache__/milan_alapkod.cpython-314.pyc.139855249332464",
+    "milan_alapkod/__pycache__/plot_long_time_decay.cpython-314.pyc",
+    "milan_alapkod/results/long_time_decay_moments.md",
+    "milan_alapkod/results/long_time_decay_beta.md",
     "module4_report.md",
     "module4/module4_report.md",
-    "module4/milan_alapkod_module4.py",
-    "module4/results/module4_threshold_search.png",
-    "module4/results/module4_threshold_search.csv",
-    "module4/results/module4_summary.json",
-    "module4/results/module4_core_contraction.png",
-    "module4/results/module4_collapse_data.csv",
-    "module4/results/module4_central_field.png",
-    "module4/results",
-    "milan_alapkod/results/extra_plots/potential_functions_09-30.png",
-    "milan_alapkod/results/extra_plots/potential_functions_09-15.png",
-    "milan_alapkod/results/extra_plots/initial_profile_09-30.png",
-    "milan_alapkod/results/extra_plots/initial_profile_09-15.png",
-    "milan_alapkod/results/extra_plots/grid_and_sponge_09-30.png",
-    "milan_alapkod/results/extra_plots/grid_and_sponge_09-15.png",
-    "milan_alapkod/results/extra_plots",
-    "milan_alapkod/results/test_09-30.jpg",
     "AI SLOP/claim_source_ledger.md",
     "Csongi_gyakorlos_sim/parameter_sweep.md",
     "build/claim_source_ledger.md",

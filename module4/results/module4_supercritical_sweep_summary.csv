@@ -1,0 +1,9 @@
+relative_offset,relative_offset_percent,amplitude,collapsed,event_time,steps,csv_file
+0.0001,0.01,1.2027299618659357,True,15.14935099127247,11362,module4/results/module4_supercritical_01_A1.202729962.csv
+0.0005,0.05,1.203211005746294,True,11.762835060700885,8823,module4/results/module4_supercritical_02_A1.203211006.csv
+0.001,0.1,1.2038123105967418,True,11.395353375503086,8547,module4/results/module4_supercritical_03_A1.203812311.csv
+0.005,0.5,1.2086227494003252,True,7.99399699927052,5996,module4/results/module4_supercritical_04_A1.208622749.csv
+0.01,1.0,1.2146357979048046,True,7.640100129188102,5731,module4/results/module4_supercritical_05_A1.214635798.csv
+0.05,5.0,1.2627401859406384,True,4.473195593362462,3355,module4/results/module4_supercritical_06_A1.262740186.csv
+0.1,10.0,1.3228706709854308,True,4.069186746778492,3052,module4/results/module4_supercritical_07_A1.322870671.csv
+0.25,25.0,1.5032621261198076,True,3.695447817249752,2772,module4/results/module4_supercritical_08_A1.503262126.csv
