@@ -6,10 +6,9 @@ The initial condition is Gaussian, but the radius is **not held fixed**. At
 each time the code fits a new width `sigma(t)` and assumes that the normalized
 inner profile approximately keeps its Gaussian shape:
 
-$$
-\frac{|\phi(r,t)|}{|\phi(0,t)|}\approx
-\exp\!\left(-\frac{r^2}{2\sigma(t)^2}\right).
-$$
+```text
+abs(phi(r,t)) / abs(phi(0,t)) ≈ exp(-r^2 / (2*sigma(t)^2))
+```
 
 The fit is a straight-line fit of `ln(|phi(r,t)|/|phi(0,t)|)` versus `r^2`,
 constrained to pass through zero as required by the normalization at the
@@ -22,9 +21,9 @@ The core radius reported in the plots is the Gaussian-implied half-height
 radius. Since a Gaussian falls to half its central value at
 `r = sqrt(2 ln 2) sigma`,
 
-$$
-R_{50,G}(t)=\sqrt{2\ln 2}\,\sigma(t).
-$$
+```text
+R50_G(t) = sqrt(2*ln(2)) * sigma(t)
+```
 
 Thus `sigma` is the fitted Gaussian width, while `R50,G` is directly
 comparable to a radius defined by the field's half-height crossing. The

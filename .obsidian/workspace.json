@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "5395ddd3e044b7c4",
+        "id": "9a1afb6e1b5f2976",
         "type": "tabs",
         "children": [
           {
-            "id": "d04ab9a9c5f6cee0",
+            "id": "7c9e7276f694853a",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "module4/Scale_invariance/Fraction_of_central/half_radius/report.md",
-                "mode": "preview",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "report"
+              "title": "New tab"
             }
           }
         ]
@@ -99,7 +95,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "module4/Scale_invariance/Fraction_of_central/half_radius/report.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -185,50 +180,53 @@
       "bases:Create new base": false
     }
   },
-  "active": "d04ab9a9c5f6cee0",
+  "active": "844b75cbcfdd9fba",
   "lastOpenFiles": [
-    "module4/Scale_invariance/scaling_diagnostics/results/critical_summary_N1000.csv",
-    "module4/Scale_invariance/scaling_diagnostics/results/critical_search_N1000.csv",
-    "module4/Scale_invariance/scaling_diagnostics/results",
-    "module4/Scale_invariance/scaling_diagnostics/critical_resolution_check.py",
-    "module4/Scale_invariance/scaling_diagnostics",
-    "module4/Scale_invariance/gaussian_profile/__pycache__/study.cpython-314.pyc.140482884096944",
-    "module4/Scale_invariance/Fraction_of_central/half_radius/__pycache__/study.cpython-314.pyc.140482884662976",
-    "module4/Scale_invariance/__pycache__/tc_precision_search.cpython-314.pyc.140482885383088",
-    "module4/Scale_invariance/gaussian_profile/__pycache__/study.cpython-314.pyc.140337541206960",
-    "module4/Scale_invariance/__pycache__/tc_precision_search.cpython-314.pyc.140337542509488",
-    "module4/Scale_invariance/__pycache__/shared_tc_alpha.cpython-314.pyc.140337542519632",
-    "module4/Scale_invariance/gaussian_profile/results/alpha_beta_scaling/alpha_beta_0.01pct_N1000_tc_joint_tail_tau_0.1_0.3.png",
-    "module4/Scale_invariance/Fraction_of_central/half_radius/results/alpha_beta_scaling/alpha_beta_0.01pct_N1000_tc_joint_tail_tau_0.1_0.3.png",
-    "module4/Scale_invariance/gaussian_profile/results/alpha_beta_scaling/tc_sensitivity_N1000_plus_0.1pct.png",
-    "module4/Scale_invariance/Fraction_of_central/half_radius/results/alpha_beta_scaling/tc_sensitivity_N1000_plus_0.1pct.png",
-    "module4/Scale_invariance/gaussian_profile/results/alpha_beta_scaling/tc_sensitivity_N1000_plus_0.0875pct.png",
-    "module4/Scale_invariance/Fraction_of_central/half_radius/results/alpha_beta_scaling/tc_sensitivity_N1000_plus_0.0875pct.png",
-    "module4/Scale_invariance/gaussian_profile/results/alpha_beta_scaling/tc_sensitivity_N1000_plus_0.075pct.png",
-    "module4/Scale_invariance/Fraction_of_central/half_radius/results/alpha_beta_scaling/tc_sensitivity_N1000_plus_0.075pct.png",
-    "module4/Scale_invariance/gaussian_profile/results/alpha_beta_scaling/tc_sensitivity_N1000_plus_0.0625pct.png",
-    "module4/Scale_invariance/Fraction_of_central/half_radius/results/alpha_beta_scaling/tc_sensitivity_N1000_plus_0.0625pct.png",
+    "General_dim/results/d_step_0.2/README.md",
+    "General_dim/__pycache__/general_dim.cpython-314.pyc",
+    "General_dim/__pycache__",
+    "General_dim/results/d_step_0.2/collapse_time_vs_dimension.png",
+    "General_dim/results/d_step_0.2/loglog_fits_by_dimension.png",
+    "General_dim/results/d_step_0.2/alpha_beta_sum_vs_dimension.png",
+    "General_dim/results/d_step_0.2/run_settings.csv",
+    "General_dim/results/d_step_0.2/scaling_fit_points.csv",
+    "General_dim/results/d_step_0.2/threshold_events.csv",
+    "General_dim/results/d_step_0.2/dimension_summary.csv",
+    "General_dim/results/d_step_0.2/trajectory_samples.csv",
+    "General_dim/results/d_step_0.2/critical_summary.csv",
+    "General_dim/results/d_step_0.2/critical_search.csv",
+    "General_dim/results/d_step_0.2",
+    "General_dim/results/loglog_fits_by_dimension.png",
+    "General_dim/results/alpha_beta_sum_vs_dimension.png",
+    "General_dim/README.md",
+    "General_dim/results/collapse_time_vs_dimension.png",
+    "module4/General_dim/README.md",
+    "module4/General_dim/results/collapse_time_vs_dimension.png",
+    "Konzi_feladatok_1.jpg",
+    "20261007_143636.jpg",
+    "module4/Scale_invariance/README.md",
+    "module4/module4_report.md",
+    "module4/Scale_invariance/gaussian_profile/results/alpha_beta_scaling/tc_sensitivity_N1000_plus_0.03875pct.png",
+    "module4/Scale_invariance/Fraction_of_central/half_radius/report.md",
+    "module4/Scale_invariance/Fraction_of_central/half_radius/results/README.md",
+    "module4/Scale_invariance/scaling_diagnostics/module5_audit/report.md",
+    "module4/Scale_invariance/scaling_diagnostics/README.md",
+    "module4/Scale_invariance/scaling_diagnostics/report.md",
+    "module4/Scale_invariance/scaling_diagnostics/module5_audit/README.md",
     "module4/Scale_invariance/alpha_beta_scaling/README.md",
     "module4/Scale_invariance/gaussian_profile/results/alpha_beta_scaling/README.md",
     "module4/Scale_invariance/Fraction_of_central/half_radius/results/alpha_beta_scaling/README.md",
-    "module4/Scale_invariance/README.md",
     "milan_alapkod/results/fourier_decay_fit.md",
     "module4/beta_collapse_study/report.md",
     "module4/beta_collapse_study/README.md",
     "milan_alapkod/results/long_time_decay_moments.md",
     "milan_alapkod/results/long_time_decay_beta.md",
     "module4_report.md",
-    "module4/module4_report.md",
     "AI SLOP/claim_source_ledger.md",
     "Csongi_gyakorlos_sim/parameter_sweep.md",
     "build/claim_source_ledger.md",
     "AI SLOP/cpp/claim_source_ledger.md",
     "DIAGRAM_BALANCE.md",
-    "TOC.md",
-    "AI SLOP/report-source.md",
-    "AI SLOP/cpp/report-source.md",
-    "Gondolatok, kerdesek.md",
-    "Untitled.md",
-    "report-source.md"
+    "TOC.md"
   ]
 }

@@ -1,0 +1,41 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{parskip}
+
+\title{Radial Module 4 equation in general dimension}
+\date{}
+
+\begin{document}
+\maketitle
+
+Take the same real scalar field and potential as Module 4,
+\[
+  V(\phi)=\frac{1}{2}\phi^2-\frac{1}{4}\phi^4,
+  \qquad V'(\phi)=\phi-\phi^3.
+\]
+The damped field equation is
+\[
+  \partial_t^2\phi-\nabla_d^2\phi+V'(\phi)
+  +\gamma(r)\partial_t\phi=0.
+\]
+For a spherically symmetric field in dimension \(d\),
+\[
+  \nabla_d^2\phi
+  =\frac{1}{r^{d-1}}\partial_r\!\left(r^{d-1}\partial_r\phi\right)
+  =\partial_r^2\phi+\frac{d-1}{r}\partial_r\phi.
+\]
+Thus the equation used by the dimension sweep is
+\[
+  \boxed{\partial_t^2\phi
+  =\partial_r^2\phi+\frac{d-1}{r}\partial_r\phi
+  -\phi+\phi^3-\gamma(r)\partial_t\phi.}
+\]
+Regularity requires \(\partial_r\phi(0,t)=0\), with
+\(\nabla_d^2\phi(0,t)=d\,\partial_r^2\phi(0,t)\). The calculation uses
+\(\phi(r,0)=A_0\exp[-r^2/(2R_0^2)]\), \(\partial_t\phi(r,0)=0\), and
+\(\phi(R_{\max},t)=0\). Real \(d>0\) is interpreted as a continuous
+parameter in the radial operator (analytic continuation), not as an ordinary
+integer-dimensional spatial grid.
+
+\end{document}

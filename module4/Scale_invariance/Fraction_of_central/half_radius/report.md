@@ -5,9 +5,9 @@
 This is a standalone critical-collapse study using a field-profile width rather
 than an energy-weighted radius. At each time, the core half-radius is
 
-$$
-R_{50}(t)=\min\{r>0:\ |\phi(r,t)|\leq 0.5|\phi(0,t)|\}.
-$$
+```text
+R50(t) = first r > 0 where abs(phi(r,t)) <= 0.5*abs(phi(0,t))
+```
 
 The first crossing is linearly interpolated between adjacent radial grid
 points. The absolute value makes the definition insensitive to the field's
@@ -48,9 +48,9 @@ The collapse time and central-field exponent are jointly fitted on the final
 40 high-field samples (`|phi(0,t)| >= 4`) using
 `|phi(0,t)| ~ (tc-t)^(-alpha)`. The radius fit is
 
-$$
-\log_{10}R_{50}=\beta\log_{10}(t_c-t)+C.
-$$
+```text
+log10(R50) = beta*log10(tc - t) + C
+```
 
 Fits are reported for remaining-time windows `0.1–0.3`, `0.2–0.6`,
 `0.4–1.0`, and `0.8–1.6`; fit samples also require `|phi(0,t)| >= 4` to

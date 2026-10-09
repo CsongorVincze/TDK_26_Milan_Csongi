@@ -7,10 +7,10 @@ each run the trajectory is truncated at successive `|phi(0)|` crossings
 exponent are estimated jointly from the high-field tail; the notes' exponents
 are then freely fitted in `0.1 <= tau=tc-t <= 0.3`:
 
-$$
-\log_{10}|\phi(0,t)|=-\alpha\log_{10}(t_c-t)+C_\phi,\qquad
-\log_{10}R_{50,G}(t)=\beta\log_{10}(t_c-t)+C_R.
-$$
+```text
+log10(abs(phi(0,t))) = -alpha*log10(tc - t) + C_phi
+log10(R50_G(t))      =  beta*log10(tc - t) + C_R
+```
 
 Each plot shows `alpha`, `beta`, and `alpha+beta` versus the joint-fit `tc`,
 with threshold-choice points connected. There is no fixed-`alpha=1` estimator

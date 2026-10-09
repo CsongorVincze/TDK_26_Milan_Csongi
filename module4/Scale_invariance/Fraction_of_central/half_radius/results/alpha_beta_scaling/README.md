@@ -8,10 +8,10 @@ each crossing by jointly fitting `tc` and the central-field tail exponent,
 then freely refits the notes' exponents in
 `0.1 <= tau=tc-t <= 0.3`:
 
-$$
-\log_{10}|\phi(0,t)|=-\alpha\log_{10}(t_c-t)+C_\phi,\qquad
-\log_{10}R_{50}(t)=\beta\log_{10}(t_c-t)+C_R.
-$$
+```text
+log10(abs(phi(0,t))) = -alpha*log10(tc - t) + C_phi
+log10(R50(t))        =  beta*log10(tc - t) + C_R
+```
 
 Each plot shows `alpha`, `beta`, and `alpha+beta` versus the joint-fit `tc`,
 connected across threshold choices. The `tc` estimate comes from the high-field

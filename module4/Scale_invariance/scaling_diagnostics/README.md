@@ -29,3 +29,8 @@ The second script uses four remaining-time windows, all bounded by `tau=0.4`,
 and the cutoff levels `|phi(0)|=20, 24, 40, 60, 80`. It retains only N=1000
 data and compares the three original coarse amplitude offsets with the
 search-selected `+0.03125%` case.
+
+For the follow-up high-field audit of the Module 5 derivation, see
+[module5_audit/report.md](module5_audit/report.md). It reruns the same solver
+to `|phi(0)|=1280` across resolutions and parameter variations, and directly
+compares the core PDE terms, `alpha + beta`, and gradient scaling.
