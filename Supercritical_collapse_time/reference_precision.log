@@ -1,0 +1,2 @@
+{'amplitude': 1.2026097002637037, 'offset_from_cpp_midpoint': -1e-12, 'collapsed': 0, 'event_time': nan, 'steps': 74055}
+{'amplitude': 1.202609700265704, 'offset_from_cpp_midpoint': 1e-12, 'collapsed': 1, 'event_time': np.float64(22.151037395537635), 'steps': 16404}

@@ -1,0 +1,65 @@
+search N=500 CFL=0.4: A=0.100000000000, event=0, end=100.000000
+search N=500 CFL=0.4: A=1.800000000000, event=1, end=1.224161
+search N=500 CFL=0.4: A=0.950000000000, event=0, end=100.000000
+search N=500 CFL=0.4: A=1.375000000000, event=1, end=3.891245
+search N=500 CFL=0.4: A=1.162500000000, event=0, end=100.000000
+search N=500 CFL=0.4: A=1.268750000000, event=1, end=4.409213
+search N=500 CFL=0.4: A=1.215625000000, event=1, end=7.603833
+search N=500 CFL=0.4: A=1.189062500000, event=0, end=100.000000
+search N=500 CFL=0.4: A=1.202343750000, event=0, end=100.000000
+search N=500 CFL=0.4: A=1.208984375000, event=1, end=7.960166
+search N=500 CFL=0.4: A=1.205664062500, event=1, end=8.779515
+search N=500 CFL=0.4: A=1.204003906250, event=1, end=11.332631
+search N=500 CFL=0.4: A=1.203173828125, event=1, end=11.807804
+search N=500 CFL=0.4: A=1.202758789063, event=1, end=15.059198
+search N=500 CFL=0.4: A=1.202551269531, event=0, end=100.000000
+search N=500 CFL=0.4: A=1.202655029297, event=1, end=15.864465
+search N=500 CFL=0.4: A=1.202603149414, event=0, end=100.000000
+search N=500 CFL=0.4: A=1.202629089355, event=1, end=18.649686
+search N=500 CFL=0.4: A=1.202616119385, event=1, end=18.944676
+search N=500 CFL=0.4: A=1.202609634399, event=0, end=100.000000
+search N=500 CFL=0.4: A=1.202612876892, event=1, end=19.129198
+search N=500 CFL=0.4: A=1.202611255646, event=1, end=19.302255
+search N=500 CFL=0.4: A=1.202610445023, event=1, end=19.466462
+search N=500 CFL=0.4: A=1.202610039711, event=1, end=19.627936
+search N=500 CFL=0.4: A=1.202609837055, event=1, end=19.800381
+search N=500 CFL=0.4: A=1.202609735727, event=1, end=20.035787
+search N=500 CFL=0.4: A=1.202609685063, event=0, end=100.000000
+search N=500 CFL=0.4: A=1.202609710395, event=1, end=20.240485
+search N=500 CFL=0.4: A=1.202609697729, event=0, end=100.000000
+search N=500 CFL=0.4: A=1.202609704062, event=1, end=20.396727
+search N=500 CFL=0.4: A=1.202609700896, event=1, end=20.685920
+search N=500 CFL=0.4: A=1.202609699313, event=0, end=100.000000
+search N=500 CFL=0.4: A=1.202609700104, event=0, end=100.000000
+search N=500 CFL=0.4: A=1.202609700500, event=1, end=20.853400
+search N=500 CFL=0.4: A=1.202609700302, event=1, end=21.198908
+search N=500 CFL=0.4: A=1.202609700203, event=0, end=100.000000
+sweep 20/342
+sweep 40/342
+sweep 60/342
+sweep 80/342
+sweep 100/342
+sweep 120/342
+sweep 140/342
+sweep 160/342
+sweep 180/342
+sweep 200/342
+sweep 220/342
+sweep 240/342
+sweep 260/342
+sweep 280/342
+sweep 300/342
+sweep 320/342
+sweep 340/342
+{
+  "critical": {
+    "n": 500,
+    "cfl": 0.4,
+    "lower_noncollapsing": 1.202609700203175,
+    "upper_collapsing": 1.202609700302128,
+    "midpoint": 1.2026097002526517,
+    "bracket_width": 9.895306796181558e-11
+  },
+  "runs": 342,
+  "noncrossing": 3
+}
