@@ -1,15 +1,317 @@
 {
-  "style": "No titles; enlarged axis/tick/legend fonts; scientific annotations preserved",
+  "style": "Original appearance; no titles; axis labels 20pt; tick labels 20pt (3D:18pt); R_0 and A_crit; negative orange and positive blue on slide17",
   "graphics": [
+    {
+      "file": "R_sweep/collapse_direction_R_horizontal.png",
+      "pixels": [
+        3840,
+        2400
+      ],
+      "frames": 1
+    },
+    {
+      "file": "R_sweep/collapse_direction_fine_R.png",
+      "pixels": [
+        3840,
+        2400
+      ],
+      "frames": 1
+    },
+    {
+      "file": "R_sweep/collapse_direction_fine_R_detail.png",
+      "pixels": [
+        3840,
+        2400
+      ],
+      "frames": 1
+    },
+    {
+      "file": "breather/breather_snapshots.png",
+      "pixels": [
+        4240,
+        3015
+      ],
+      "frames": 1
+    },
+    {
+      "file": "breather/breather_spacetime.png",
+      "pixels": [
+        3889,
+        1720
+      ],
+      "frames": 1
+    },
     {
       "file": "breather_animation.gif",
       "pixels": [
         1280,
         720
       ],
-      "frames": 160,
-      "duration_ms": 8000,
-      "bytes": 1384257
+      "frames": 160
+    },
+    {
+      "file": "central_field_blowup_scaling.png",
+      "pixels": [
+        5246,
+        2386
+      ],
+      "frames": 1
+    },
+    {
+      "file": "collapse_maps/collapse_map_R1p0.png",
+      "pixels": [
+        3846,
+        2366
+      ],
+      "frames": 1
+    },
+    {
+      "file": "collapse_maps/collapse_map_R1p1.png",
+      "pixels": [
+        3847,
+        2366
+      ],
+      "frames": 1
+    },
+    {
+      "file": "collapse_maps/collapse_map_R1p2.png",
+      "pixels": [
+        3846,
+        2366
+      ],
+      "frames": 1
+    },
+    {
+      "file": "collapse_maps/collapse_map_R1p3.png",
+      "pixels": [
+        3846,
+        2366
+      ],
+      "frames": 1
+    },
+    {
+      "file": "collapse_maps/collapse_map_R1p4.png",
+      "pixels": [
+        3846,
+        2366
+      ],
+      "frames": 1
+    },
+    {
+      "file": "collapse_maps/collapse_map_R1p5.png",
+      "pixels": [
+        3846,
+        2366
+      ],
+      "frames": 1
+    },
+    {
+      "file": "collapse_maps/collapse_map_R1p6.png",
+      "pixels": [
+        3846,
+        2366
+      ],
+      "frames": 1
+    },
+    {
+      "file": "collapse_maps/collapse_map_R1p7.png",
+      "pixels": [
+        3846,
+        2366
+      ],
+      "frames": 1
+    },
+    {
+      "file": "collapse_maps/collapse_map_R1p8.png",
+      "pixels": [
+        3846,
+        2366
+      ],
+      "frames": 1
+    },
+    {
+      "file": "collapse_maps/collapse_map_R1p9.png",
+      "pixels": [
+        3846,
+        2366
+      ],
+      "frames": 1
+    },
+    {
+      "file": "collapse_maps/collapse_map_R2p0.png",
+      "pixels": [
+        3846,
+        2366
+      ],
+      "frames": 1
+    },
+    {
+      "file": "collapse_maps/collapse_map_R2p1.png",
+      "pixels": [
+        3846,
+        2366
+      ],
+      "frames": 1
+    },
+    {
+      "file": "collapse_maps/collapse_map_R2p2.png",
+      "pixels": [
+        3846,
+        2366
+      ],
+      "frames": 1
+    },
+    {
+      "file": "collapse_maps/collapse_map_R2p3.png",
+      "pixels": [
+        3846,
+        2366
+      ],
+      "frames": 1
+    },
+    {
+      "file": "collapse_maps/collapse_map_R2p4.png",
+      "pixels": [
+        3846,
+        2366
+      ],
+      "frames": 1
+    },
+    {
+      "file": "collapse_maps/collapse_map_R2p5.png",
+      "pixels": [
+        3846,
+        2366
+      ],
+      "frames": 1
+    },
+    {
+      "file": "collapse_maps/collapse_map_R2p6.png",
+      "pixels": [
+        3846,
+        2366
+      ],
+      "frames": 1
+    },
+    {
+      "file": "collapse_maps/collapse_map_R2p7.png",
+      "pixels": [
+        3846,
+        2366
+      ],
+      "frames": 1
+    },
+    {
+      "file": "collapse_maps/collapse_map_R2p8.png",
+      "pixels": [
+        3846,
+        2366
+      ],
+      "frames": 1
+    },
+    {
+      "file": "collapse_maps/collapse_map_R2p9.png",
+      "pixels": [
+        3846,
+        2366
+      ],
+      "frames": 1
+    },
+    {
+      "file": "collapse_maps/collapse_map_R3p0.png",
+      "pixels": [
+        3846,
+        2366
+      ],
+      "frames": 1
+    },
+    {
+      "file": "critical_curve/critical_and_supercritical_t20.png",
+      "pixels": [
+        4446,
+        2366
+      ],
+      "frames": 1
+    },
+    {
+      "file": "critical_inspection/R2/critical_curve.png",
+      "pixels": [
+        4046,
+        2897
+      ],
+      "frames": 1
+    },
+    {
+      "file": "critical_inspection/R2/full_time_trace.png",
+      "pixels": [
+        4046,
+        1646
+      ],
+      "frames": 1
+    },
+    {
+      "file": "critical_inspection/R2.4/critical_curve.png",
+      "pixels": [
+        4046,
+        2879
+      ],
+      "frames": 1
+    },
+    {
+      "file": "critical_inspection/R2.4/full_time_trace.png",
+      "pixels": [
+        4046,
+        1646
+      ],
+      "frames": 1
+    },
+    {
+      "file": "critical_inspection/R3/critical_curve.png",
+      "pixels": [
+        4046,
+        2898
+      ],
+      "frames": 1
+    },
+    {
+      "file": "critical_inspection/R3/full_time_trace.png",
+      "pixels": [
+        4046,
+        1646
+      ],
+      "frames": 1
+    },
+    {
+      "file": "critical_inspection/all_critical_candidates.png",
+      "pixels": [
+        4846,
+        4454
+      ],
+      "frames": 1
+    },
+    {
+      "file": "critical_inspection/critical_and_supercritical_departures.png",
+      "pixels": [
+        4446,
+        4324
+      ],
+      "frames": 1
+    },
+    {
+      "file": "decay/decay_report_magyar.png",
+      "pixels": [
+        4446,
+        2933
+      ],
+      "frames": 1
+    },
+    {
+      "file": "decay/period_vs_time_magyar.png",
+      "pixels": [
+        4446,
+        2246
+      ],
+      "frames": 1
     },
     {
       "file": "decay_report_animation.gif",
@@ -17,129 +319,15 @@
         1280,
         720
       ],
-      "frames": 200,
-      "duration_ms": 13200,
-      "bytes": 1599390
+      "frames": 200
     },
     {
-      "file": "oscillon_3D.gif",
+      "file": "dispersion_vs_blowup/dispersion_vs_collapse.png",
       "pixels": [
-        1280,
-        720
+        3759,
+        4187
       ],
-      "frames": 480,
-      "duration_ms": 24000,
-      "bytes": 15988457
-    },
-    {
-      "file": "oscillon_radiation_2D.gif",
-      "pixels": [
-        1280,
-        720
-      ],
-      "frames": 320,
-      "duration_ms": 17000,
-      "bytes": 5383375
-    },
-    {
-      "file": "oscillon_radiation_3D.gif",
-      "pixels": [
-        1280,
-        720
-      ],
-      "frames": 320,
-      "duration_ms": 17000,
-      "bytes": 29904208
-    },
-    {
-      "file": "oscillon_radiation_zoom_2D.gif",
-      "pixels": [
-        1280,
-        800
-      ],
-      "frames": 320,
-      "duration_ms": 17000,
-      "bytes": 9510640
-    },
-    {
-      "file": "oscillon_radiation_zoom_2D.png",
-      "pixels": [
-        1280,
-        800
-      ],
-      "frames": 1,
-      "duration_ms": 0,
-      "bytes": 92875
-    },
-    {
-      "file": "oscillon_radiation_original_2D.gif",
-      "pixels": [
-        1280,
-        720
-      ],
-      "frames": 320,
-      "duration_ms": 17000,
-      "bytes": 2675678
-    },
-    {
-      "file": "oscillon_radiation_detail_2D.gif",
-      "pixels": [
-        1280,
-        720
-      ],
-      "frames": 320,
-      "duration_ms": 17000,
-      "bytes": 3379724
-    },
-    {
-      "file": "central_field_blowup_scaling.png",
-      "pixels": [
-        5246,
-        2372
-      ],
-      "frames": 1,
-      "duration_ms": 0,
-      "bytes": 752090
-    },
-    {
-      "file": "terminal_blowup_scaling.png",
-      "pixels": [
-        4046,
-        2446
-      ],
-      "frames": 1,
-      "duration_ms": 0,
-      "bytes": 384740
-    },
-    {
-      "file": "lifetime_map_R_amplitude.png",
-      "pixels": [
-        5163,
-        3246
-      ],
-      "frames": 1,
-      "duration_ms": 0,
-      "bytes": 561477
-    },
-    {
-      "file": "lifetime_map_R_amplitude_linear.png",
-      "pixels": [
-        5163,
-        3246
-      ],
-      "frames": 1,
-      "duration_ms": 0,
-      "bytes": 490848
-    },
-    {
-      "file": "lifetime_map_detail.png",
-      "pixels": [
-        5164,
-        3246
-      ],
-      "frames": 1,
-      "duration_ms": 0,
-      "bytes": 467883
+      "frames": 1
     },
     {
       "file": "energy_comparison/energy_balance.png",
@@ -147,19 +335,15 @@
         3877,
         1477
       ],
-      "frames": 1,
-      "duration_ms": 0,
-      "bytes": 296284
+      "frames": 1
     },
     {
       "file": "energy_comparison/energy_components.png",
       "pixels": [
         3877,
-        2728
+        2721
       ],
-      "frames": 1,
-      "duration_ms": 0,
-      "bytes": 604306
+      "frames": 1
     },
     {
       "file": "energy_comparison/field_snapshots.png",
@@ -167,9 +351,7 @@
         3557,
         3557
       ],
-      "frames": 1,
-      "duration_ms": 0,
-      "bytes": 470818
+      "frames": 1
     },
     {
       "file": "energy_comparison/radial_energy_snapshot.png",
@@ -177,9 +359,166 @@
         3877,
         2597
       ],
-      "frames": 1,
-      "duration_ms": 0,
-      "bytes": 474443
+      "frames": 1
+    },
+    {
+      "file": "lifetime_map_R_amplitude.png",
+      "pixels": [
+        3840,
+        2400
+      ],
+      "frames": 1
+    },
+    {
+      "file": "lifetime_map_R_amplitude_linear.png",
+      "pixels": [
+        3840,
+        2400
+      ],
+      "frames": 1
+    },
+    {
+      "file": "lifetime_map_detail.png",
+      "pixels": [
+        3840,
+        2400
+      ],
+      "frames": 1
+    },
+    {
+      "file": "lifetime_maps/lifetime_map_R_amplitude.png",
+      "pixels": [
+        3840,
+        2400
+      ],
+      "frames": 1
+    },
+    {
+      "file": "lifetime_maps/lifetime_map_R_amplitude_linear.png",
+      "pixels": [
+        3840,
+        2400
+      ],
+      "frames": 1
+    },
+    {
+      "file": "lifetime_maps/lifetime_map_detail.png",
+      "pixels": [
+        3840,
+        2400
+      ],
+      "frames": 1
+    },
+    {
+      "file": "oscillon_3D.gif",
+      "pixels": [
+        1280,
+        720
+      ],
+      "frames": 480
+    },
+    {
+      "file": "oscillon_radiation_2D.gif",
+      "pixels": [
+        1280,
+        720
+      ],
+      "frames": 320
+    },
+    {
+      "file": "oscillon_radiation_3D.gif",
+      "pixels": [
+        1280,
+        720
+      ],
+      "frames": 320
+    },
+    {
+      "file": "oscillon_radiation_detail_2D.gif",
+      "pixels": [
+        1280,
+        720
+      ],
+      "frames": 320
+    },
+    {
+      "file": "oscillon_radiation_original_2D.gif",
+      "pixels": [
+        1280,
+        720
+      ],
+      "frames": 320
+    },
+    {
+      "file": "oscillon_radiation_zoom_2D.gif",
+      "pixels": [
+        1280,
+        800
+      ],
+      "frames": 320
+    },
+    {
+      "file": "oscillon_radiation_zoom_2D.png",
+      "pixels": [
+        1280,
+        800
+      ],
+      "frames": 1
+    },
+    {
+      "file": "potentials/quartic_potential.png",
+      "pixels": [
+        2840,
+        1790
+      ],
+      "frames": 1
+    },
+    {
+      "file": "potentials/sine_gordon_potential.png",
+      "pixels": [
+        2840,
+        1790
+      ],
+      "frames": 1
+    },
+    {
+      "file": "potentials/symmetry_broken_potential.png",
+      "pixels": [
+        2840,
+        1790
+      ],
+      "frames": 1
+    },
+    {
+      "file": "terminal_blowup_scaling.png",
+      "pixels": [
+        4046,
+        2446
+      ],
+      "frames": 1
     }
-  ]
+  ],
+  "morph_maps": {
+    "canvas_pixels": [
+      3840,
+      2400
+    ],
+    "xlim": [
+      0.95,
+      3.05
+    ],
+    "ylim": [
+      1e-06,
+      3
+    ],
+    "yscale": "log",
+    "shared_axes_rectangle": [
+      0.135,
+      0.2,
+      0.665,
+      0.75
+    ],
+    "x_tick_spacing": 0.25,
+    "checks": "morph_alignment_checks.json"
+  }
 }
