@@ -1,0 +1,185 @@
+{
+  "style": "No titles; enlarged axis/tick/legend fonts; scientific annotations preserved",
+  "graphics": [
+    {
+      "file": "breather_animation.gif",
+      "pixels": [
+        1280,
+        720
+      ],
+      "frames": 160,
+      "duration_ms": 8000,
+      "bytes": 1384257
+    },
+    {
+      "file": "decay_report_animation.gif",
+      "pixels": [
+        1280,
+        720
+      ],
+      "frames": 200,
+      "duration_ms": 13200,
+      "bytes": 1599390
+    },
+    {
+      "file": "oscillon_3D.gif",
+      "pixels": [
+        1280,
+        720
+      ],
+      "frames": 480,
+      "duration_ms": 24000,
+      "bytes": 15988457
+    },
+    {
+      "file": "oscillon_radiation_2D.gif",
+      "pixels": [
+        1280,
+        720
+      ],
+      "frames": 320,
+      "duration_ms": 17000,
+      "bytes": 5383375
+    },
+    {
+      "file": "oscillon_radiation_3D.gif",
+      "pixels": [
+        1280,
+        720
+      ],
+      "frames": 320,
+      "duration_ms": 17000,
+      "bytes": 29904208
+    },
+    {
+      "file": "oscillon_radiation_zoom_2D.gif",
+      "pixels": [
+        1280,
+        800
+      ],
+      "frames": 320,
+      "duration_ms": 17000,
+      "bytes": 9510640
+    },
+    {
+      "file": "oscillon_radiation_zoom_2D.png",
+      "pixels": [
+        1280,
+        800
+      ],
+      "frames": 1,
+      "duration_ms": 0,
+      "bytes": 92875
+    },
+    {
+      "file": "oscillon_radiation_original_2D.gif",
+      "pixels": [
+        1280,
+        720
+      ],
+      "frames": 320,
+      "duration_ms": 17000,
+      "bytes": 2675678
+    },
+    {
+      "file": "oscillon_radiation_detail_2D.gif",
+      "pixels": [
+        1280,
+        720
+      ],
+      "frames": 320,
+      "duration_ms": 17000,
+      "bytes": 3379724
+    },
+    {
+      "file": "central_field_blowup_scaling.png",
+      "pixels": [
+        5246,
+        2372
+      ],
+      "frames": 1,
+      "duration_ms": 0,
+      "bytes": 752090
+    },
+    {
+      "file": "terminal_blowup_scaling.png",
+      "pixels": [
+        4046,
+        2446
+      ],
+      "frames": 1,
+      "duration_ms": 0,
+      "bytes": 384740
+    },
+    {
+      "file": "lifetime_map_R_amplitude.png",
+      "pixels": [
+        5163,
+        3246
+      ],
+      "frames": 1,
+      "duration_ms": 0,
+      "bytes": 561477
+    },
+    {
+      "file": "lifetime_map_R_amplitude_linear.png",
+      "pixels": [
+        5163,
+        3246
+      ],
+      "frames": 1,
+      "duration_ms": 0,
+      "bytes": 490848
+    },
+    {
+      "file": "lifetime_map_detail.png",
+      "pixels": [
+        5164,
+        3246
+      ],
+      "frames": 1,
+      "duration_ms": 0,
+      "bytes": 467883
+    },
+    {
+      "file": "energy_comparison/energy_balance.png",
+      "pixels": [
+        3877,
+        1477
+      ],
+      "frames": 1,
+      "duration_ms": 0,
+      "bytes": 296284
+    },
+    {
+      "file": "energy_comparison/energy_components.png",
+      "pixels": [
+        3877,
+        2728
+      ],
+      "frames": 1,
+      "duration_ms": 0,
+      "bytes": 604306
+    },
+    {
+      "file": "energy_comparison/field_snapshots.png",
+      "pixels": [
+        3557,
+        3557
+      ],
+      "frames": 1,
+      "duration_ms": 0,
+      "bytes": 470818
+    },
+    {
+      "file": "energy_comparison/radial_energy_snapshot.png",
+      "pixels": [
+        3877,
+        2597
+      ],
+      "frames": 1,
+      "duration_ms": 0,
+      "bytes": 474443
+    }
+  ]
+}
